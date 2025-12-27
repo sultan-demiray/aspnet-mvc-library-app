@@ -1,0 +1,18 @@
+﻿@model WebApplication8.Models.Kitap
+
+<h2>Kitap Güncelle</h2>
+
+<form asp-action="Guncelle" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <input asp-for="Ad" placeholder="Kitap Adı" />
+    <input asp-for="Yazar" placeholder="Yazar" />
+    <input asp-for="Fiyat" placeholder="Fiyat" />
+    <input asp-for="Kategori" placeholder="Kategori" />
+    <textarea asp-for="Ozet" placeholder="Özet"></textarea>
+
+    <br />
+    <button type="submit">Güncelle</button>
+    <a asp-action="Index">İptal</a>
+</form>
+

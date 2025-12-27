@@ -1,0 +1,51 @@
+﻿@model List<WebApplication8.Models.Kitap>
+
+
+<h2>Kitap Ekle</h2>
+
+<form asp-action="Ekle" method="post">
+    <input name="Ad" placeholder="Kitap Adı" />
+    <input name="Yazar" placeholder="Yazar" />
+    <input name="Fiyat" placeholder="Fiyat" />
+    <input name="Kategori" placeholder="Kategori" />
+    <textarea name="Ozet" placeholder="Özet"></textarea>
+    <br />
+    <button type="submit">Ekle</button>
+</form>
+
+<hr />
+
+<h2>Kitap Listesi</h2>
+
+<div style="margin-bottom:10px;">
+    <a asp-action="SiralaAdaGore">Ada Göre Sırala</a> |
+    <a asp-action="SiralaFiyataGore">Fiyata Göre Sırala</a>
+</div>
+
+
+<table border="1">
+    <tr>
+        <th>Ad</th>
+        <th>Yazar</th>
+        <th>Fiyat</th>
+        <th>Kategori</th>
+        <th>Özet</th>
+        <th>İşlem</th>
+    </tr>
+
+    @foreach (var kitap in Model)
+    {
+        <tr>
+            <td>@kitap.Ad</td>
+            <td>@kitap.Yazar</td>
+            <td>@kitap.Fiyat</td>
+            <td>@kitap.Kategori</td>
+            <td>@kitap.Ozet</td>
+            <td>
+                <a asp-action="Guncelle" asp-route-id="@kitap.Id">Güncelle</a> |
+                <a asp-action="Sil" asp-route-id="@kitap.Id">Sil</a>
+            </td>
+
+        </tr>
+    }
+</table>
